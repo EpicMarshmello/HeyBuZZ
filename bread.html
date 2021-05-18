@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to BREAD</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-image: url('ladypom.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <form action="https://sheetdb.io/api/v1/atvotrh74ncta" method="POST" id="sheetdb-form">
+        <h1>เลดี้ปอมอยากคุยกับคุณ</h1>
+        Name : <input id="nameZa" name="data[name]" placeholder="Enter your name"><br><br>
+        Message : <input id="messageZa" name="data[message]" placeholder="Enter your message"><br><br>
+        <button type="submit"> Submit </button>
+    </form><br>
+    <script>
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(document.getElementById("sheetdb-form")),
+            }).then(
+                response => response.json()
+            ).then((html) => {
+                // you can put any JS code here
+                alert('success');
+                document.getElementById("nameZa").value = "";
+                document.getElementById("messageZa").value = "";
+            });
+        });
+    </script>
+</body>
+
+</html>
